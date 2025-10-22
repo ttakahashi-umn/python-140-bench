@@ -1,7 +1,65 @@
 [project]
 name = "python-140-bench"
 version = "0.1.0"
-description = "Add your description here"
+description = "python 1.4.0がリリースされたのでベンチマーク"
 readme = "README.md"
-requires-python = ">=3.14"
-dependencies = []
+requires-python = ">=3.13.9"
+dependencies = [
+    "matplotlib>=3.10.7",
+    "pandas>=2.3.3",
+    "psutil>=7.1.1",
+    "tqdm>=4.67.1",
+]
+
+[dependency-groups]
+dev = [
+    "pre-commit>=4.3.0",
+    "pyright>=1.1.406",
+    "ruff>=0.14.1",
+    "types-psutil>=7.0.0.20251001",
+]
+
+[tool.ruff.lint]
+preview = true
+select = [
+    # pycodestyle
+    "E",
+    # Pyflakes
+    "F",
+    # pyupgrade
+    "UP",
+    # flake8-bugbear
+    "B",
+    # flake8-simplify
+    "SIM",
+    # isort
+    "I",
+    # Pylint
+    "PL",
+    "FAST",
+    "NPY",
+]
+
+ignore = [
+    "B008",
+    "FAST002",
+    "E501",
+    "PLR0913",
+    "PLR0917",
+    "PLR2004",
+    "PLR6301",
+    "PLC1901",
+    "E101",
+    "PLR6201",
+    # オプショナル依存関係のインポート関連
+    "F401", # unused import
+    "F811", # redefined while unused
+]
+# 本来対応した方が良いもの
+# PLR6301, PLC1901, "E101"
+
+[tool.ruff.lint.pycodestyle]
+max-line-length = 100
+
+[tool.ruff.lint.pylint]
+max-bool-expr = 10

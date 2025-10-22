@@ -1,0 +1,15 @@
+repos:
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.14.1
+    hooks:
+      - id: ruff
+        args: [--fix]
+      - id: ruff-format
+  # pyrightは現在Python 3.14環境の問題により一時的に無効化
+  # - repo: https://github.com/RobertCraigie/pyright-python
+  #   rev: v1.1.406
+  #   hooks:
+  #     - id: pyright
+  #       args: [--level=warning, --pythonversion=3.13]
+  #       files: ^main\.py$
+  #       additional_dependencies: []
